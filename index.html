@@ -8,65 +8,71 @@
 <meta property="og:title" content="Joatham Jacob — Energy & Decarbonization Engineer">
 <meta property="og:description" content="Industrial energy efficiency, marginal abatement cost modelling, EU ETS and CBAM. Based in Milan.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23172033'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='%23f59e0b' text-anchor='middle'%3EJJ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23053b2d'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='%2334d399' text-anchor='middle'%3EJJ%3C/text%3E%3C/svg%3E">
 <style>
   :root {
     color-scheme: light;
-    --bg: #f7f6f2;
+    --bg: #f4f7f5;
     --surface: #ffffff;
-    --surface-2: #f0eee8;
-    --ink: #14181f;
-    --ink-2: #4a4f58;
-    --ink-3: #6f737b;
-    --line: #dedbd2;
-    --accent: #b45309;
-    --accent-ink: #92400e;
-    --accent-soft: #fdf1e3;
-    --hero: #172033;
-    --hero-ink: #f5f3ee;
-    --hero-ink-2: #b9bfcb;
-    --bar-pos: #2a78d6;
-    --bar-neg: #1baf7a;
-    --shadow: 0 1px 2px rgba(20,24,31,.05), 0 4px 16px rgba(20,24,31,.05);
+    --surface-2: #ebf2ee;
+    --ink: #0f1a15;
+    --ink-2: #43524b;
+    --ink-3: #66756e;
+    --line: #d6e1db;
+    --accent: #047857;
+    --accent-ink: #047857;
+    --accent-soft: #dff3ea;
+    --pop: #34d399;
+    --pop-hover: #6ee7b7;
+    --pop-ink: #022c22;
+    --hero: #053b2d;
+    --hero-ink: #f1f7f4;
+    --hero-ink-2: #bcd3c8;
+    --bar-pos: #047857;
+    --bar-neg: #eda100;
+    --bar-label: #ffffff;
+    --shadow: 0 1px 2px rgba(5,59,45,.05), 0 4px 16px rgba(5,59,45,.06);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --bg: #121418;
-      --surface: #1a1d23;
-      --surface-2: #22262e;
-      --ink: #eef0f3;
-      --ink-2: #b8bdc6;
-      --ink-3: #8e949e;
-      --line: #2e333c;
-      --accent: #f59e0b;
-      --accent-ink: #fbbf24;
-      --accent-soft: #2a2114;
-      --hero: #0d1017;
-      --hero-ink: #f5f3ee;
-      --hero-ink-2: #aab1be;
-      --bar-pos: #3987e5;
-      --bar-neg: #199e70;
+      --bg: #0b1310;
+      --surface: #111c17;
+      --surface-2: #17251f;
+      --ink: #e9f2ed;
+      --ink-2: #b1c2ba;
+      --ink-3: #84968d;
+      --line: #22332b;
+      --accent: #34d399;
+      --accent-ink: #6ee7b7;
+      --accent-soft: #0f2a20;
+      --hero: #042a20;
+      --hero-ink: #f1f7f4;
+      --hero-ink-2: #aac4b8;
+      --bar-pos: #059669;
+      --bar-neg: #c98500;
+      --bar-label: #ffffff;
       --shadow: none;
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #121418;
-    --surface: #1a1d23;
-    --surface-2: #22262e;
-    --ink: #eef0f3;
-    --ink-2: #b8bdc6;
-    --ink-3: #8e949e;
-    --line: #2e333c;
-    --accent: #f59e0b;
-    --accent-ink: #fbbf24;
-    --accent-soft: #2a2114;
-    --hero: #0d1017;
-    --hero-ink: #f5f3ee;
-    --hero-ink-2: #aab1be;
-    --bar-pos: #3987e5;
-    --bar-neg: #199e70;
+    --bg: #0b1310;
+    --surface: #111c17;
+    --surface-2: #17251f;
+    --ink: #e9f2ed;
+    --ink-2: #b1c2ba;
+    --ink-3: #84968d;
+    --line: #22332b;
+    --accent: #34d399;
+    --accent-ink: #6ee7b7;
+    --accent-soft: #0f2a20;
+    --hero: #042a20;
+    --hero-ink: #f1f7f4;
+    --hero-ink-2: #aac4b8;
+    --bar-pos: #059669;
+    --bar-neg: #c98500;
+    --bar-label: #ffffff;
     --shadow: none;
   }
 
@@ -86,43 +92,76 @@
 
   /* ---------- nav ---------- */
   header.nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--hero) 94%, transparent);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background .25s, border-color .25s;
+  }
+  header.nav.solid {
+    background: color-mix(in srgb, var(--hero) 95%, transparent);
     backdrop-filter: saturate(140%) blur(8px);
     -webkit-backdrop-filter: saturate(140%) blur(8px);
-    border-bottom: 1px solid rgba(255,255,255,.06);
+    border-bottom-color: rgba(255,255,255,.08);
   }
+  section[id] { scroll-margin-top: 56px; }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
   .brand { color: var(--hero-ink); text-decoration: none; font-weight: 700; letter-spacing: .01em; white-space: nowrap; }
-  .brand span { color: #f59e0b; }
+  .brand span { color: var(--pop); }
   .nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
   .nav ul a { color: var(--hero-ink-2); text-decoration: none; font-size: 14px; font-weight: 500; }
   .nav ul a:hover { color: var(--hero-ink); }
-
-  /* ---------- hero ---------- */
-  .hero { background: var(--hero); color: var(--hero-ink); padding: 72px 0 64px; position: relative; overflow: hidden; }
-  .hero::after {
-    content: ""; position: absolute; inset: auto -10% -60% auto; width: 620px; height: 620px;
-    background: radial-gradient(closest-side, rgba(245,158,11,.16), transparent 70%);
-    pointer-events: none;
+  header.nav:not(.solid) ul a { color: #fff; text-shadow: 0 1px 10px rgba(0,0,0,.5); }
+  @media (min-width: 901px) {
+    .nav .wrap { max-width: none; padding: 0 6vw; height: max(56px, 4.4vw); }
+    .brand { font-size: max(16px, 1.25vw); }
+    .nav ul { gap: max(22px, 1.8vw); }
+    .nav ul a { font-size: max(14px, 1vw); }
   }
-  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #f59e0b; margin: 0 0 14px; }
-  .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 18px; font-weight: 750; max-width: 16ch; }
-  .hero .lede { font-size: clamp(17px, 2.2vw, 20px); color: var(--hero-ink-2); max-width: 60ch; margin: 0 0 30px; }
-  .hero .lede strong { color: var(--hero-ink); font-weight: 600; }
+
+  /* ---------- hero: a 16:9 frame with the photo as background ---------- */
+  .hero { position: relative; background: var(--hero); color: var(--hero-ink); overflow: hidden; aspect-ratio: 16 / 9; }
+  .hero-photo {
+    position: absolute; inset: 0;
+    background: url("hero.jpg") no-repeat right center / auto 100%;
+  }
+  .hero-shade {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg,
+        var(--hero) 0%, var(--hero) 19%,
+        color-mix(in srgb, var(--hero) 88%, transparent) 30%,
+        color-mix(in srgb, var(--hero) 55%, transparent) 39%,
+        color-mix(in srgb, var(--hero) 0%, transparent) 50%),
+      linear-gradient(180deg, color-mix(in srgb, var(--hero) 60%, transparent) 0%, transparent 16%),
+      linear-gradient(0deg, color-mix(in srgb, var(--hero) 35%, transparent) 0%, transparent 18%);
+  }
+  .hero-inner {
+    position: relative; z-index: 1; height: 100%; width: 39vw;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 56px 0 0 6vw;
+  }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--pop); margin: 0 0 14px; }
+  .hero .eyebrow { font-size: max(11px, .92vw); margin-bottom: 1.1vw; }
+  .hero h1 { font-size: 4.3vw; line-height: 1.02; letter-spacing: -.025em; margin: 0 0 .9vw; font-weight: 750; }
+  .hero .tagline { font-size: 1.95vw; line-height: 1.22; font-weight: 600; color: var(--hero-ink); margin: 0 0 1.3vw; letter-spacing: -.01em; }
+  .hero .lede { font-size: max(14px, 1.2vw); line-height: 1.6; color: var(--hero-ink-2); margin: 0 0 2vw; }
+  .hero .cta { gap: .8vw; margin-bottom: 1.8vw; }
+  .hero .btn { font-size: max(13px, 1.08vw); padding: .82vw 1.35vw; border-radius: .6vw; }
+  .hero .btn svg { width: 1.2vw; height: 1.2vw; min-width: 14px; min-height: 14px; }
+  .hero .facts { gap: .55vw; }
+  .hero .chip { font-size: max(11px, .9vw); padding: .3vw .9vw; }
   .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; position: relative; z-index: 1; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px;
     font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid transparent; line-height: 1.2;
   }
-  .btn-primary { background: #f59e0b; color: #1b1405; }
-  .btn-primary:hover { background: #fbbf24; }
-  .btn-ghost { color: var(--hero-ink); border-color: rgba(255,255,255,.22); }
+  .btn-primary { background: var(--pop); color: var(--pop-ink); }
+  .btn-primary:hover { background: var(--pop-hover); }
+  .btn-ghost { color: var(--hero-ink); border-color: rgba(255,255,255,.28); background: rgba(4,42,32,.25); }
   .btn-ghost:hover { border-color: rgba(255,255,255,.5); }
   .btn svg { width: 16px; height: 16px; flex: none; }
   .facts { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
   .chip {
-    font-size: 13px; color: var(--hero-ink-2); border: 1px solid rgba(255,255,255,.14);
+    font-size: 13px; color: var(--hero-ink-2); border: 1px solid rgba(255,255,255,.18);
     border-radius: 999px; padding: 5px 12px; white-space: nowrap;
   }
 
@@ -239,13 +278,31 @@
   .contact { background: var(--hero); color: var(--hero-ink); border-top: 0 !important; }
   .contact h2 { color: var(--hero-ink); }
   .contact p:not(.eyebrow) { color: var(--hero-ink-2); max-width: 58ch; margin: 0 0 26px; }
-  .contact .eyebrow { color: #f59e0b; }
+  .contact .eyebrow { color: var(--pop); }
   footer { background: var(--hero); color: var(--hero-ink-2); font-size: 13px; padding: 20px 0 28px; border-top: 1px solid rgba(255,255,255,.08); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   .theme-toggle { background: none; border: 1px solid rgba(255,255,255,.2); color: var(--hero-ink-2); border-radius: 6px; padding: 3px 10px; font: inherit; font-size: 12.5px; cursor: pointer; }
 
   /* ---------- responsive ---------- */
   @media (max-width: 900px) {
+    .hero { aspect-ratio: auto; }
+    .hero-photo { position: relative; inset: auto; aspect-ratio: 3 / 2; background-size: cover; background-position: 50% 30%; }
+    .hero-shade { display: none; }
+    .hero-photo::after {
+      content: ""; position: absolute; inset: 0 0 -1px 0;
+      background: linear-gradient(0deg, var(--hero) 0%, var(--hero) 1.5%, color-mix(in srgb, var(--hero) 0%, transparent) 30%),
+                  linear-gradient(180deg, color-mix(in srgb, var(--hero) 70%, transparent) 0%, transparent 22%);
+    }
+    .hero-inner { width: auto; height: auto; padding: 4px 24px 52px; }
+    .hero .eyebrow { font-size: 12.5px; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(36px, 8vw, 52px); margin-bottom: 10px; }
+    .hero .tagline { font-size: clamp(20px, 4.4vw, 26px); margin-bottom: 14px; }
+    .hero .lede { font-size: 16.5px; margin-bottom: 24px; max-width: 60ch; }
+    .hero .cta { gap: 10px; margin-bottom: 22px; }
+    .hero .btn { font-size: 15px; padding: 11px 18px; border-radius: 8px; }
+    .hero .btn svg { width: 16px; height: 16px; }
+    .hero .facts { gap: 8px; }
+    .hero .chip { font-size: 12.5px; padding: 5px 12px; }
     .feature-body { grid-template-columns: 1fr; }
     .chart-panel { border-right: 0; border-bottom: 1px solid var(--line); }
     .grid3, .field { grid-template-columns: 1fr 1fr; }
@@ -257,7 +314,8 @@
   @media (max-width: 640px) {
     .wrap { padding: 0 16px; }
     .nav ul { display: none; }
-    .hero { padding: 52px 0 48px; }
+    .hero-photo { aspect-ratio: 4 / 5; background-position: 47% 25%; }
+    .hero-inner { padding: 0 16px 44px; margin-top: -8px; }
     section { padding: 56px 0; }
     .feature-top, .chart-panel, .findings, .feature-foot { padding-left: 20px; padding-right: 20px; }
     .grid3, .field, .skills { grid-template-columns: 1fr; }
@@ -299,10 +357,13 @@
 
   <!-- ================= HERO ================= -->
   <div class="hero">
-    <div class="wrap">
+    <div class="hero-photo" role="img" aria-label="Joatham Jacob at his University of Milan graduation, wearing a laurel wreath and holding his master's thesis"></div>
+    <div class="hero-shade"></div>
+    <div class="hero-inner">
       <p class="eyebrow">Energy &amp; Decarbonization Engineer · Milan</p>
-      <h1>Which measures actually cut emissions, and what they cost</h1>
-      <p class="lede">I'm <strong>Joatham Jacob (JJ)</strong>, an energy and environmental engineer. I identify, cost and rank <strong>industrial energy-efficiency and decarbonization measures</strong>. I start from verified emissions data, build marginal abatement cost curves, and work out when each measure becomes financially viable under EU ETS and CBAM.</p>
+      <h1>Joatham Jacob</h1>
+      <p class="tagline">Which measures actually cut emissions, and what they cost.</p>
+      <p class="lede">I identify, cost and rank industrial energy-efficiency and decarbonization measures. I start from verified emissions data, build marginal abatement cost curves, and work out when each measure pays under EU ETS and CBAM.</p>
       <div class="cta">
         <a class="btn btn-primary" href="cv.pdf" download>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
@@ -313,7 +374,6 @@
       </div>
       <div class="facts">
         <span class="chip">M.Sc. University of Milan · 100/110</span>
-        <span class="chip">B.Tech Energy &amp; Environmental Eng.</span>
         <span class="chip">MACC · NPV · IRR · LCOE</span>
         <span class="chip">EU ETS · CBAM · ISO 50001</span>
         <span class="chip">English C1 · Italian B1</span>
@@ -394,19 +454,19 @@
                   <g class="bar">
                     <title>Biocarbon substitution (50% fossil C): 113,494 tCO₂/yr at €137/tCO₂ · capex €4.0M</title>
                     <rect x="116.8" y="172" width="286.1" height="74" rx="3" fill="var(--bar-pos)"/>
-                    <text x="260" y="205" font-size="14" font-weight="600" fill="#fff" text-anchor="middle" class="lbl">Biocarbon substitution</text>
-                    <text x="260" y="224" font-size="13" fill="#fff" text-anchor="middle" class="lbl">113 kt/yr</text>
-                    <text x="260" y="216" font-size="20" font-weight="600" fill="#fff" text-anchor="middle" class="lbl-m">Biocarbon</text>
+                    <text x="260" y="205" font-size="14" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl">Biocarbon substitution</text>
+                    <text x="260" y="224" font-size="13" fill="var(--bar-label)" text-anchor="middle" class="lbl">113 kt/yr</text>
+                    <text x="260" y="216" font-size="20" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl-m">Biocarbon</text>
                     <text x="260" y="165" font-size="13" font-weight="700" fill="var(--ink)" text-anchor="middle" class="num val">137</text>
                   </g>
                   <g class="bar">
                     <title>Tunnel-furnace electrification: 56,000 tCO₂/yr at €360/tCO₂ · capex €30.0M</title>
                     <rect x="406.9" y="51.6" width="141.1" height="194.4" rx="3" fill="var(--bar-pos)"/>
-                    <text x="477.5" y="140" font-size="14" font-weight="600" fill="#fff" text-anchor="middle" class="lbl">Tunnel furnace</text>
-                    <text x="477.5" y="158" font-size="14" font-weight="600" fill="#fff" text-anchor="middle" class="lbl">electrification</text>
-                    <text x="477.5" y="177" font-size="13" fill="#fff" text-anchor="middle" class="lbl">56 kt/yr</text>
-                    <text x="477.5" y="148" font-size="20" font-weight="600" fill="#fff" text-anchor="middle" class="lbl-m">Tunnel</text>
-                    <text x="477.5" y="172" font-size="20" font-weight="600" fill="#fff" text-anchor="middle" class="lbl-m">furnace</text>
+                    <text x="477.5" y="140" font-size="14" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl">Tunnel furnace</text>
+                    <text x="477.5" y="158" font-size="14" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl">electrification</text>
+                    <text x="477.5" y="177" font-size="13" fill="var(--bar-label)" text-anchor="middle" class="lbl">56 kt/yr</text>
+                    <text x="477.5" y="148" font-size="20" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl-m">Tunnel</text>
+                    <text x="477.5" y="172" font-size="20" font-weight="600" fill="var(--bar-label)" text-anchor="middle" class="lbl-m">furnace</text>
                     <text x="477.5" y="44" font-size="13" font-weight="700" fill="var(--ink)" text-anchor="middle" class="num val">360</text>
                   </g>
                 </g>
@@ -595,6 +655,13 @@
 <script>
   // Hide any link still pointing at a placeholder, so nothing broken shows on the live site.
   document.querySelectorAll('a[href^="REPLACE_"]').forEach(function (a) { a.remove(); });
+
+  // Nav turns solid once the page scrolls past the top of the photo.
+  (function () {
+    var nav = document.querySelector('header.nav');
+    function update() { nav.classList.toggle('solid', window.scrollY > 24); }
+    update(); window.addEventListener('scroll', update, { passive: true });
+  })();
 
   // Light / dark toggle (remembers choice when storage is available).
   (function () {
