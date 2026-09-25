@@ -105,6 +105,10 @@
   header.nav.solid .brand, header.nav.solid ul a { text-shadow: none; }
   header.nav.solid ul a { color: var(--hero-ink-2); }
   header.nav.solid ul a:hover { color: var(--hero-ink); }
+  .menu-btn {
+    display: none; align-items: center; background: rgba(4,42,32,.35); color: #fff; border: 1px solid rgba(255,255,255,.35);
+    border-radius: .4rem; padding: .35rem .8rem; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer;
+  }
 
   /* ---------- buttons ---------- */
   .cta { display: flex; flex-wrap: wrap; gap: .75rem; }
@@ -206,14 +210,17 @@
   .org { font-size: .9rem; color: var(--ink-2); margin-bottom: .3rem; }
   .timeline p { margin: 0; font-size: .92rem; color: var(--ink-2); line-height: 1.55; }
   .grad-photo {
-    aspect-ratio: 16 / 9; border-radius: .75rem; overflow: hidden; margin: 0 0 1.4rem; position: relative;
-    background: url("graduation.jpg") 48% 30% / cover no-repeat; box-shadow: var(--shadow);
+    aspect-ratio: 2 / 1; border-radius: .75rem; overflow: hidden; margin: 0 0 1.2rem; position: relative;
+    background: url("graduation.jpg") 47% 34% / 150% auto no-repeat; box-shadow: var(--shadow);
   }
   .grad-photo figcaption {
     position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem .9rem .6rem; font-size: .75rem; color: #fff;
     background: linear-gradient(0deg, rgba(3,30,22,.75), transparent);
   }
-  .edu-item { margin-bottom: 1.1rem; }
+  .edu-item { margin-bottom: 1.2rem; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-item .coursework { margin-top: .45rem; padding: .55rem .75rem; background: var(--surface-2); border-radius: .5rem; color: var(--ink-2); }
+  .edu-label { display: block; font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: .1rem; }
   .edu-item h3 { font-size: 1rem; margin: .1rem 0; }
   .edu-item p { margin: 0; color: var(--ink-2); font-size: .9rem; line-height: 1.55; }
 
@@ -247,7 +254,15 @@
   @media (max-width: 640px) {
     .frame, .nav-in { padding-left: 1rem; padding-right: 1rem; }
     .frame { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-    .nav ul { display: none; }
+    .menu-btn { display: inline-flex; margin-left: auto; }
+    .nav-in { gap: 0; }
+    .nav ul {
+      display: none; position: absolute; top: 3.5rem; left: 0; right: 0; flex-direction: column; gap: 0;
+      background: var(--hero); border-bottom: 1px solid rgba(255,255,255,.1); padding: .4rem 1rem .8rem;
+    }
+    .nav ul.open { display: flex; }
+    .nav ul a { display: block; padding: .7rem 0; font-size: 1rem; color: var(--hero-ink); text-shadow: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav ul li:last-child a { border-bottom: 0; }
     .hero-bg { aspect-ratio: 4 / 5; background-position: 40% center; }
     .hero .frame { padding-top: 0; }
     .stat { padding: .9rem; }
@@ -322,11 +337,15 @@
     .field h3 { font-size: .9rem; }
 
     /* experience */
-    .two-col { grid-template-columns: 1.45fr 1fr; gap: 3.6rem; }
+    .two-col { grid-template-columns: 1.3fr 1fr; gap: 3.2rem; }
     .timeline p { font-size: .82rem; }
     .timeline li { padding-bottom: 1.25rem; }
-    .grad-photo { margin-bottom: 1.2rem; }
+    .grad-photo { margin-bottom: .9rem; aspect-ratio: 5 / 2; background-position: 47% 30%; }
+    .edu-item { margin-bottom: .9rem; }
+    .edu-item h3 { font-size: .98rem; }
+    .edu-item .coursework { padding: .45rem .7rem; margin-top: .35rem; }
     .edu-item p { font-size: .82rem; }
+    .edu-item .coursework { font-size: .76rem; line-height: 1.5; }
 
     /* skills: fewer lines, so centre them in the slide and give them room */
     #skills .frame { justify-content: center; padding-top: 4.6rem; }
@@ -359,8 +378,9 @@
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="#top">Joatham Jacob<span>.</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
     <nav aria-label="Sections">
-      <ul>
+      <ul id="site-menu">
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -594,14 +614,16 @@
             <figcaption>Graduation, Università degli Studi di Milano · July 2025</figcaption>
           </figure>
           <div class="edu-item">
-            <div class="when">2022 – 2025</div>
+            <div class="when">2022 – 2025 · Classe LM-75</div>
             <h3>M.Sc. Environmental Change and Global Sustainability</h3>
             <p>Università degli Studi di Milano. Full scholarship, 100/110, taught in English. Thesis: <em>Emission Reduction Commitments in Global Agriculture</em>.</p>
+            <p class="coursework"><span class="edu-label">Key coursework</span> Sustainability accounting &amp; management · Environmental economics &amp; policy · Statistical &amp; quantitative methods · Bioresource &amp; pollution control technology (29/30) · Chemistry of natural processes (28/30) · Waste management · LCA &amp; GIS training</p>
           </div>
           <div class="edu-item">
             <div class="when">2016 – 2021</div>
             <h3>B.Tech Energy and Environmental Engineering</h3>
-            <p>Tamil Nadu Agricultural University. Energy auditing, renewable energy systems, thermodynamics, environmental impact assessment.</p>
+            <p>Tamil Nadu Agricultural University. Thesis: <em>Design and Fabrication of a Solar Powered Trash Compactor</em>, published by TNAU in 2020.</p>
+            <p class="coursework"><span class="edu-label">Key coursework</span> Energy auditing · Renewable energy systems · Thermodynamics · Environmental impact assessment · Pollution control engineering · Environmental monitoring</p>
           </div>
         </div>
       </div>
@@ -664,6 +686,27 @@
 </main>
 
 <script>
+  // Phone menu: open/close, and close after picking a section.
+  (function () {
+    var btn = document.querySelector('.menu-btn'), list = document.getElementById('site-menu');
+    btn.addEventListener('click', function () {
+      var open = list.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Close' : 'Menu';
+    });
+    list.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { list.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menu'; }
+    });
+  })();
+
+  // On the live site, hide the "Download CV" buttons until cv.pdf has been uploaded next to this page.
+  (function () {
+    if (!/^https?:$/.test(location.protocol)) return;
+    fetch('cv.pdf', { method: 'HEAD', cache: 'no-store' }).then(function (r) {
+      if (!r.ok) document.querySelectorAll('a[href="cv.pdf"]').forEach(function (a) { a.remove(); });
+    }).catch(function () {});
+  })();
+
   // Hide any link still pointing at a placeholder, so nothing broken shows on the live site.
   document.querySelectorAll('a[href^="REPLACE_"]').forEach(function (a) { a.remove(); });
 
