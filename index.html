@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Joatham Jacob — Energy &amp; Decarbonization Engineer</title>
-<meta name="description" content="Joatham Jacob (JJ) — energy and decarbonization engineer in Milan. Industrial energy efficiency, marginal abatement cost modelling, EU ETS and CBAM.">
-<meta property="og:title" content="Joatham Jacob — Energy & Decarbonization Engineer">
-<meta property="og:description" content="Industrial energy efficiency, marginal abatement cost modelling, EU ETS and CBAM. Based in Milan.">
+<title>Joatham Jacob — Energy, Decarbonization &amp; ESG</title>
+<meta name="description" content="Joatham Jacob (JJ) — energy, decarbonization and ESG engineer in Milan. GHG inventories, CSRD reporting and assurance, industrial energy efficiency, marginal abatement cost modelling, EU ETS and CBAM.">
+<meta property="og:title" content="Joatham Jacob — Energy, Decarbonization & ESG">
+<meta property="og:description" content="GHG inventories, CSRD reporting, industrial energy efficiency and marginal abatement cost modelling. Based in Milan.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="hero.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23053b2d'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' fill='%2334d399' text-anchor='middle'%3EJJ%3C/text%3E%3C/svg%3E">
@@ -255,6 +255,21 @@
   .edu-item h3 { font-size: 1rem; margin: .1rem 0; }
   .edu-item p { margin: 0; color: var(--ink-2); font-size: .9rem; line-height: 1.55; }
 
+  /* ---------- knowledge ---------- */
+  .k-grid { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+  .k-card { background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; padding: 1.2rem 1.25rem 1rem; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+  .k-num { font-family: var(--font-mono); font-size: .72rem; color: var(--accent-ink); margin: 0 0 .3rem; }
+  .k-card h3 { font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-size: 1.22rem; line-height: 1.2; margin: 0 0 .7rem; }
+  .k-list { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .45rem; }
+  .k-list li { position: relative; padding-left: .95rem; font-size: .88rem; color: var(--ink-2); line-height: 1.45; }
+  .k-list li::before { content: ""; position: absolute; left: 0; top: .66em; width: .4rem; height: 2px; border-radius: 1px; background: var(--accent); }
+  .k-list b { color: var(--ink); font-weight: 600; }
+  .k-shown { margin-top: auto; padding-top: .7rem; border-top: 1px solid var(--line); font-size: .82rem; line-height: 1.5; }
+  .k-label { display: block; font-family: var(--font-mono); font-size: .66rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-bottom: .15rem; }
+  .k-shown a { text-decoration: none; font-weight: 600; }
+  .k-shown a:hover { text-decoration: underline; }
+  .k-shown .sep { color: var(--ink-3); margin: 0 .25rem; }
+
   /* ---------- skills ---------- */
   .skills { display: grid; grid-template-columns: 1fr; gap: 1.2rem 2.6rem; }
   .skills h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); margin-bottom: .35rem; }
@@ -276,8 +291,9 @@
   .theme-toggle { background: none; border: 1px solid rgba(255,255,255,.25); color: var(--hero-ink-2); border-radius: .4rem; padding: .2rem .65rem; font: inherit; font-size: .78rem; cursor: pointer; }
 
   /* ---------- tablets ---------- */
+  .k-grid.six .k-card h3 { font-size: 1.1rem; margin-bottom: .55rem; }
   @media (min-width: 700px) {
-    .grid3, .field { grid-template-columns: 1fr 1fr; }
+    .grid3, .field, .k-grid { grid-template-columns: 1fr 1fr; }
     .skills { grid-template-columns: 1fr 1fr; }
     .findings { grid-template-columns: 1fr 1fr; }
   }
@@ -378,10 +394,32 @@
     .edu-item p { font-size: .82rem; }
     .edu-item .coursework { font-size: .76rem; line-height: 1.5; }
 
+    /* knowledge: four areas side by side */
+    #knowledge .sec-head { margin-bottom: 1.2rem; }
+    #knowledge .sec-head p:not(.eyebrow) { font-size: .92rem; }
+    .k-grid { grid-template-columns: repeat(4, 1fr); gap: 1.2rem; flex: 1; min-height: 0; }
+    .k-card { padding: 1rem 1.05rem .85rem; }
+    .k-card h3 { font-size: 1.12rem; margin-bottom: .6rem; }
+    .k-list { gap: .38rem; margin-bottom: .8rem; }
+    .k-list li { font-size: .76rem; line-height: 1.42; padding-left: .85rem; }
+    .k-shown { font-size: .74rem; padding-top: .6rem; }
+
+    /* ESG: six compact cards, three per row */
+    #esg .sec-head { margin-bottom: 1.2rem; }
+    #esg .sec-head p:not(.eyebrow) { font-size: .92rem; max-width: none; }
+    #esg h2 { margin-bottom: .35rem; }
+    .k-grid.six { grid-template-columns: repeat(3, 1fr); gap: .95rem 1.4rem; }
+    .k-grid.six .k-card { padding: .9rem 1.05rem .8rem; }
+    .k-grid.six .k-card h3 { font-size: 1.05rem; margin-bottom: .45rem; }
+    .k-grid.six .k-list { gap: .25rem; margin-bottom: .6rem; }
+    .k-grid.six .k-list li { font-size: .78rem; }
+    .k-grid.six .k-shown { font-size: .72rem; line-height: 1.45; color: var(--ink-2); padding-top: .5rem; }
+
     /* skills: fewer lines, so centre them in the slide and give them room */
     #skills .frame { justify-content: center; padding-top: 4.6rem; }
     .skills-wrap { grid-template-columns: 1.3fr 1fr; }
     .skills { row-gap: 1.9rem; }
+    #skills .skills { grid-template-columns: 1fr; row-gap: 1.6rem; }
     .skills h3 { font-size: .78rem; margin-bottom: .45rem; }
     .skills p { font-size: .98rem; }
     .certs li { font-size: .98rem; padding: .95rem 0; }
@@ -413,8 +451,10 @@
     <nav aria-label="Sections">
       <ul id="site-menu">
         <li><a href="#work">Work</a></li>
+        <li><a href="#knowledge">Knowledge</a></li>
+        <li><a href="#esg">ESG</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#skills">Credentials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -429,10 +469,10 @@
     <div class="hero-scrim"></div>
     <div class="frame">
       <div class="hero-text">
-        <p class="eyebrow">Energy &amp; Decarbonization Engineer · Milan</p>
+        <p class="eyebrow">Energy · Decarbonization · ESG — Milan</p>
         <h1>Joatham Jacob</h1>
-        <p class="tagline">Which measures actually cut emissions, and what they cost.</p>
-        <p class="lede">I identify, cost and rank industrial energy-efficiency and decarbonization measures. I start from verified emissions data, build marginal abatement cost curves, and work out when each measure pays under EU ETS and CBAM.</p>
+        <p class="tagline">From the emissions inventory to the measures that cut it.</p>
+        <p class="lede">Two years measuring and reporting emissions for industrial and corporate clients under the GHG Protocol, ISO 14064 and CSRD. Now I also cost and rank the measures that reduce them, using marginal abatement cost curves under EU ETS and CBAM.</p>
         <div class="cta">
           <a class="btn btn-primary" href="cv.pdf" download>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>
@@ -608,7 +648,137 @@
     </div>
   </section>
 
-  <!-- ================= 4 · EXPERIENCE ================= -->
+  <!-- ================= 4 · KNOWLEDGE ================= -->
+  <section class="slide" id="knowledge">
+    <div class="frame">
+      <div class="sec-head">
+        <p class="eyebrow">Knowledge</p>
+        <h2>What I know, and where it shows</h2>
+        <p>The technical ground I've covered moving from ESG reporting into industrial energy work, with the projects where each part is put to use.</p>
+      </div>
+      <div class="k-grid">
+        <article class="k-card">
+          <p class="k-num">01</p>
+          <h3>Industrial energy systems</h3>
+          <ul class="k-list">
+            <li><b>ISO 50001:</b> energy review, significant energy uses, baselines and EnPIs, Plan-Do-Check-Act</li>
+            <li>Steam, compressed air, refrigeration, HVAC, motors and drives</li>
+            <li>Process heat, combustion and waste-heat recovery</li>
+            <li><b>Heat electrification:</b> industrial heat pumps up to ~150 °C, electric boilers, resistance heating</li>
+            <li>Energy balances and P&amp;IDs; three-phase power, power factor, load profiles, demand charges</li>
+            <li><b>ISO 14064-1 and -2:</b> organisational inventories and project-level reductions</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Applied in</span><a href="#work">Arvedi case study</a><span class="sep">·</span><a href="#more-work">Railway station audits</a></p>
+        </article>
+        <article class="k-card">
+          <p class="k-num">02</p>
+          <h3>Decarbonization methods</h3>
+          <ul class="k-list">
+            <li><b>Marginal abatement cost curves:</b> tCO<sub>2</sub>e per measure, €/t, ranking</li>
+            <li><b>Project finance:</b> payback, NPV, IRR, LCOE, levelised cost of abatement</li>
+            <li><b>SBTi Net-Zero Standard:</b> absolute contraction, SDA and FLAG targets</li>
+            <li><b>CBAM:</b> covered sectors, embedded emissions, reporting duties</li>
+            <li>EU ETS allowances and the free-allocation phase-out</li>
+            <li><b>Italian incentives:</b> iperammortamento (after Transizione 5.0), Conto Termico, white certificates</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Applied in</span><a href="#work">Arvedi MACC</a><span class="sep">·</span><a href="#more-work">EAF plant MACC</a><span class="sep">·</span><a href="#more-work">Abatement cost app</a></p>
+        </article>
+        <article class="k-card">
+          <p class="k-num">03</p>
+          <h3>Sector depth: EAF steel</h3>
+          <ul class="k-list">
+            <li>Scrap–EAF process flow and where Scope 1 comes from: injected carbon, electrodes, gas, flux</li>
+            <li><b>Levers by maturity:</b> waste-heat recovery, electrification, biocarbon, hydrogen DRI, CCU</li>
+            <li>Scrap quality and copper tolerance as the long-term constraint</li>
+            <li>ETS allocation, CBAM benchmarks and the 2026–2034 phase-out</li>
+            <li>2030 and 2050 pathways against MPP and E3G/PNNL sector benchmarks</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Applied in</span><a href="#work">Arvedi 2030 package</a><span class="sep">·</span><a href="arvedi-case-study.pdf" target="_blank" rel="noopener">2050 pathway (PDF)</a></p>
+        </article>
+        <article class="k-card">
+          <p class="k-num">04</p>
+          <h3>Energy data and tools</h3>
+          <ul class="k-list">
+            <li><b>Excel:</b> models with Power Query, pivots, scenarios and sensitivity analysis</li>
+            <li><b>Python (pandas):</b> hourly meter data, cleaning, degree-day regression baselines, anomaly flags</li>
+            <li><b>Power BI:</b> energy performance dashboards</li>
+            <li><b>PVsyst:</b> PV sizing and cost estimation</li>
+            <li><b>React:</b> interactive techno-economic tools</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Applied in</span><a href="#more-work">Monitoring pipeline</a><span class="sep">·</span><a href="#more-work">Abatement cost app</a><span class="sep">·</span><a href="#work">Arvedi Excel model</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5 · ESG & CARBON ACCOUNTING ================= -->
+  <section class="slide" id="esg">
+    <div class="frame">
+      <div class="sec-head">
+        <p class="eyebrow">ESG &amp; carbon accounting</p>
+        <h2>Inventories, disclosure and assurance</h2>
+        <p>The other half of the job: the numbers every decarbonization plan starts from, and the reports and audits they end up in.</p>
+      </div>
+      <div class="k-grid six">
+        <article class="k-card">
+          <h3>GHG inventories</h3>
+          <ul class="k-list">
+            <li>Scope 1–3 under the GHG Protocol and ISO 14064-1</li>
+            <li>Boundary setting and emission-factor selection</li>
+            <li>Project-level reductions under ISO 14064-2</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span>2024 Scope 1–2 inventory at Industrious Global Technologies<span class="sep">·</span>Scope 1–3 for Omtra clients, with data collected on site</p>
+        </article>
+        <article class="k-card">
+          <h3>Reporting &amp; disclosure</h3>
+          <ul class="k-list">
+            <li>CSRD/ESRS, all ten standards</li>
+            <li>GRI, SASB, TCFD, IR, BRSR</li>
+            <li>CDP-style questionnaires, EU Taxonomy</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span>CSRD readiness assessment across all ten ESRS<span class="sep">·</span>Disclosure benchmarking for international clients at Earth Academy Global</p>
+        </article>
+        <article class="k-card">
+          <h3>Assurance &amp; data quality</h3>
+          <ul class="k-list">
+            <li>Primary data collection and validation</li>
+            <li>Traceability and evidence records for auditors</li>
+            <li>B Corp and EcoVadis certification processes</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span>Internal audits and third-party verification at Omtra<span class="sep">·</span>Formal data-quality controls at Industrious Global Technologies</p>
+        </article>
+        <article class="k-card">
+          <h3>Targets &amp; climate claims</h3>
+          <ul class="k-list">
+            <li>SBTi target frameworks</li>
+            <li>Testing net-zero claims against physical performance</li>
+            <li>Benchmarking commitments against sector standards</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span><a href="#work">Arvedi net-zero claim assessment</a><span class="sep">·</span>M.Sc. thesis on corporate emission targets in agriculture</p>
+        </article>
+        <article class="k-card">
+          <h3>Life cycle assessment</h3>
+          <ul class="k-list">
+            <li>Practical LCA training in the M.Sc.</li>
+            <li>Green procurement and waste management coursework</li>
+            <li>Agricultural-university background, relevant to agrifood LCA</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span><a href="#experience">M.Sc., University of Milan</a><span class="sep">·</span><a href="#experience">B.Tech, TNAU</a></p>
+        </article>
+        <article class="k-card">
+          <h3>Supply chains &amp; buildings</h3>
+          <ul class="k-list">
+            <li>Supplier ESG screening before approval</li>
+            <li>Scope 1–2 tools for building portfolios</li>
+            <li>Benchmarking against EU Taxonomy, EPBD and BREEAM</li>
+          </ul>
+          <p class="k-shown"><span class="k-label">Evidence</span>Supplier screening at Industrious Global Technologies<span class="sep">·</span>Portfolio benchmarking tools (2026)</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6 · EXPERIENCE ================= -->
   <section class="slide" id="experience">
     <div class="frame">
       <div class="two-col">
@@ -623,13 +793,13 @@
               <div class="when">Feb 2025 – Aug 2025</div>
               <h3>ESG Supply Chain &amp; International Project Sourcing Intern</h3>
               <div class="org">Industrious Global Technologies · Milan</div>
-              <p>Calculated the company's 2024 Scope 1 and 2 emissions from primary consumption data. I ran data-quality controls, assessed reduction pathways and efficiency opportunities, and kept KPI reporting for management.</p>
+              <p>Calculated the company's 2024 Scope 1 and 2 inventory from primary consumption data, ran data-quality controls, screened international suppliers against ESG criteria, and assessed reduction pathways and efficiency opportunities.</p>
             </li>
             <li>
               <div class="when">Nov 2023 – May 2024</div>
               <h3>ESG Measurement Intern</h3>
               <div class="org">Omtra S.r.l. Società Benefit · Milan</div>
-              <p>Collected primary energy and process data on site at client facilities and calculated Scope 1–3 emissions. I took part in internal audits and third-party verification, and presented findings to clients.</p>
+              <p>Collected primary energy and process data on site and calculated Scope 1–3 emissions for client companies. Took part in internal audits and third-party verification for B Corp and EcoVadis, and presented findings to clients.</p>
             </li>
             <li>
               <div class="when">Sep 2021 – Nov 2022</div>
@@ -661,20 +831,18 @@
     </div>
   </section>
 
-  <!-- ================= 5 · SKILLS ================= -->
+  <!-- ================= 7 · TOOLS & CREDENTIALS ================= -->
   <section class="slide" id="skills">
     <div class="frame">
       <div class="two-col skills-wrap">
         <div>
           <div class="sec-head">
-            <p class="eyebrow">Skills</p>
-            <h2>Toolkit</h2>
+            <p class="eyebrow">Toolkit</p>
+            <h2>Tools and languages</h2>
           </div>
           <div class="skills">
-            <div><h3>Energy &amp; decarbonization</h3><p>Energy auditing, ISO 50001 baselines and EnPIs, MACC development, industrial energy systems, heat electrification, waste-heat recovery, M&amp;V principles</p></div>
-            <div><h3>Techno-economics</h3><p>NPV, IRR, LCOE, levelised cost of abatement, capital recovery, scenario and sensitivity analysis, regression baselining</p></div>
-            <div><h3>Carbon &amp; regulation</h3><p>GHG Protocol Scope 1–3, ISO 14064-1/-2, EU ETS, CBAM, CSRD/ESRS, SBTi, Italian incentives (iperammortamento, white certificates)</p></div>
-            <div><h3>Tools</h3><p>Excel (advanced), Python (pandas), Power BI, React, Tableau, PVsyst, AutoCAD, QGIS</p></div>
+            <div><h3>Software</h3><p>Excel (advanced), Python (pandas), Power BI, React, Tableau, PVsyst, AutoCAD, QGIS</p></div>
+            <div><h3>Carbon accounting &amp; reporting</h3><p>GHG Protocol Scope 1–3, CSRD/ESRS, GRI, SASB, TCFD, EU Taxonomy</p></div>
             <div><h3>Languages</h3><p>English (C1), Italian (B1), Malayalam (native), Tamil, Hindi</p></div>
           </div>
         </div>
@@ -695,17 +863,18 @@
     </div>
   </section>
 
-  <!-- ================= 6 · CONTACT ================= -->
+  <!-- ================= 8 · CONTACT ================= -->
   <section class="slide contact" id="contact">
     <div class="frame">
       <div class="contact-body">
         <p class="eyebrow">Contact</p>
         <h2>Let's talk about your site's energy</h2>
-        <p class="lead">I'm based in Milan and open to energy engineering, decarbonization consulting and ESCo roles in Italy and abroad. I'm happy to walk through any of the models on this site.</p>
+        <p class="lead">I'm based in Milan and open to energy engineering, decarbonization, ESCo, ESG, carbon accounting and LCA roles in Italy and abroad. I'm happy to walk through any of the models on this site.</p>
         <div class="cta">
           <a class="btn btn-primary" href="mailto:joathamjacob@gmail.com">joathamjacob@gmail.com</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/joatham-jacob" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-ghost" href="cv.pdf" download>Download CV</a>
+          <a class="btn btn-ghost" href="cv.pdf" download>Energy CV</a>
+          <a class="btn btn-ghost" href="cv-esg.pdf" download>ESG CV</a>
         </div>
       </div>
       <div class="contact-foot">
@@ -730,12 +899,14 @@
     });
   })();
 
-  // On the live site, hide the "Download CV" buttons until cv.pdf has been uploaded next to this page.
+  // On the live site, hide each CV button until its PDF has been uploaded next to this page.
   (function () {
     if (!/^https?:$/.test(location.protocol)) return;
-    fetch('cv.pdf', { method: 'HEAD', cache: 'no-store' }).then(function (r) {
-      if (!r.ok) document.querySelectorAll('a[href="cv.pdf"]').forEach(function (a) { a.remove(); });
-    }).catch(function () {});
+    ['cv.pdf', 'cv-esg.pdf'].forEach(function (file) {
+      fetch(file, { method: 'HEAD', cache: 'no-store' }).then(function (r) {
+        if (!r.ok) document.querySelectorAll('a[href="' + file + '"]').forEach(function (a) { a.remove(); });
+      }).catch(function () {});
+    });
   })();
 
   // Hide any link still pointing at a placeholder, so nothing broken shows on the live site.
