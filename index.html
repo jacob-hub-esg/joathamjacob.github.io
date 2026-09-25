@@ -59,6 +59,26 @@
   }
 
   /* =========================================================
+     Typography — self-hosted webfonts (SIL Open Font License)
+     ========================================================= */
+  @font-face { font-family: "IBM Plex Sans"; src: url("fonts/plex-sans-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "IBM Plex Sans"; src: url("fonts/plex-sans-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: "IBM Plex Sans"; src: url("fonts/plex-sans-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "IBM Plex Sans"; src: url("fonts/plex-sans-600.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: "IBM Plex Sans"; src: url("fonts/plex-sans-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("fonts/plex-mono-500.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Fraunces"; src: url("fonts/fraunces.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Fraunces"; src: url("fonts/fraunces-italic.woff2") format("woff2"); font-weight: 100 900; font-style: italic; font-display: swap; }
+  :root {
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-head: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    --head-weight: 600;
+    --head-track: -0.012em;
+  }
+
+  /* =========================================================
      Base (phones & tablets): normal scrolling page.
      Every size is in rem, so the 16:9 mode below can scale
      the whole page like a slide by changing one number.
@@ -67,12 +87,23 @@
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; overflow-x: clip; }
   body {
     margin: 0; background: var(--bg); color: var(--ink);
-    font: 1rem/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    font: 1rem/1.6 var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent-ink); text-underline-offset: 3px; }
   a:hover { text-decoration-thickness: 2px; }
   .num { font-variant-numeric: tabular-nums; }
+  sub { font-size: .7em; line-height: 0; vertical-align: -.22em; }
+  .arr { width: .95em; height: .95em; vertical-align: -.12em; flex: none; }
+  /* display type */
+  h1, h2, .cs-title, .hero .tagline, .stat .v, .brand {
+    font-family: var(--font-head); font-weight: var(--head-weight); letter-spacing: var(--head-track);
+    font-optical-sizing: auto;
+  }
+  /* technical labels */
+  .eyebrow, .tag, .kicker, .status, .skills h3, .edu-label, .when, .measures th, .stack span, .legend, .panel-sub, .field-head, .certs li span {
+    font-family: var(--font-mono);
+  }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   .slide { position: relative; }
@@ -80,8 +111,8 @@
   .frame { max-width: 65rem; margin: 0 auto; padding: 4.5rem 1.5rem; }
   section[id] { scroll-margin-top: 3.5rem; }
 
-  .eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 .6rem; }
-  h2 { font-size: clamp(1.65rem, 3.6vw, 2.1rem); line-height: 1.15; letter-spacing: -.015em; margin: 0 0 .6rem; }
+  .eyebrow { font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0 0 .6rem; }
+  h2 { font-size: clamp(1.75rem, 3.8vw, 2.25rem); line-height: 1.12; margin: 0 0 .6rem; }
   h3 { font-size: 1.2rem; line-height: 1.3; margin: 0 0 .5rem; letter-spacing: -.005em; }
   .sec-head { margin-bottom: 2rem; }
   .sec-head p:not(.eyebrow) { color: var(--ink-2); margin: 0; max-width: 64ch; }
@@ -98,7 +129,7 @@
     border-bottom-color: rgba(255,255,255,.08);
   }
   .nav-in { max-width: 65rem; margin: 0 auto; padding: 0 1.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .brand { color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .01em; white-space: nowrap; font-size: 1rem; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
+  .brand { color: #fff; text-decoration: none; white-space: nowrap; font-size: 1.12rem; text-shadow: 0 1px 10px rgba(0,0,0,.35); }
   .brand span { color: var(--pop); }
   .nav ul { list-style: none; display: flex; gap: 1.4rem; margin: 0; padding: 0; }
   .nav ul a { color: #fff; text-decoration: none; font-size: .875rem; font-weight: 500; text-shadow: 0 1px 10px rgba(0,0,0,.45); }
@@ -133,23 +164,23 @@
   .hero-scrim { display: none; }
   .hero .frame { padding-top: .25rem; padding-bottom: 3.25rem; }
   .hero .eyebrow { color: var(--pop); }
-  .hero h1 { font-size: clamp(2.3rem, 8vw, 3.3rem); line-height: 1.02; letter-spacing: -.025em; margin: 0 0 .6rem; font-weight: 750; }
-  .hero .tagline { font-size: clamp(1.25rem, 4.4vw, 1.6rem); line-height: 1.22; font-weight: 600; margin: 0 0 .9rem; letter-spacing: -.01em; }
+  .hero h1 { font-size: clamp(2.4rem, 8.4vw, 3.5rem); line-height: 1.02; margin: 0 0 .6rem; }
+  .hero .tagline { font-size: clamp(1.3rem, 4.6vw, 1.7rem); line-height: 1.2; margin: 0 0 .9rem; font-style: italic; font-weight: 400; }
   .hero .lede { font-size: 1.03rem; line-height: 1.6; color: var(--hero-ink-2); margin: 0 0 1.5rem; max-width: 60ch; }
 
   /* ---------- case study ---------- */
   .tag {
-    display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-    color: var(--accent-ink); background: var(--accent-soft); padding: .2rem .65rem; border-radius: 999px; margin-bottom: .8rem;
+    display: inline-block; font-size: .72rem; font-weight: 500; letter-spacing: .03em; text-transform: uppercase;
+    color: var(--accent-ink); background: var(--accent-soft); padding: .2rem .65rem; border-radius: .3rem; margin-bottom: .8rem;
   }
-  .cs-title { font-size: clamp(1.4rem, 3vw, 1.75rem); line-height: 1.18; margin: 0 0 .7rem; letter-spacing: -.015em; }
+  .cs-title { font-size: clamp(1.5rem, 3.2vw, 1.9rem); line-height: 1.15; margin: 0 0 .7rem; }
   .cs-summary { color: var(--ink-2); margin: 0 0 1.4rem; }
   .stats { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; overflow: hidden; box-shadow: var(--shadow); }
   .stat { padding: 1rem 1.1rem; }
   .stat:nth-child(even) { border-left: 1px solid var(--line); }
   .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .stat .v { font-size: 1.55rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
-  .stat .v small { font-size: .85rem; font-weight: 600; color: var(--ink-2); letter-spacing: 0; }
+  .stat .v { font-size: 1.6rem; line-height: 1.1; font-variant-numeric: lining-nums; }
+  .stat .v small { font-family: var(--font-body); font-size: .8rem; font-weight: 500; color: var(--ink-2); letter-spacing: 0; }
   .stat .l { font-size: .8rem; color: var(--ink-2); margin-top: .3rem; line-height: 1.4; }
 
   .chart-card { background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; padding: 1.2rem 1.3rem 1rem; box-shadow: var(--shadow); margin-top: 1.5rem; min-width: 0; }
@@ -287,7 +318,7 @@
     .frame { width: 80rem; max-width: 100%; height: 100%; padding: 5.6rem 4.8rem 3rem; display: flex; flex-direction: column; }
     section[id] { scroll-margin-top: 0; }
     .nav-in { max-width: 80rem; padding: 0 4.8rem; }
-    h2 { font-size: 2.1rem; }
+    h2 { font-size: 2.25rem; }
     .sec-head { margin-bottom: 1.6rem; }
 
     /* hero: photo fills the whole slide, text sits on the grass slope */
@@ -302,8 +333,8 @@
     .hero .frame { position: relative; z-index: 1; flex-direction: row; align-items: flex-end; justify-content: flex-end; padding-bottom: 3.6rem; }
     .hero-text { width: 30.5rem; }
     .hero .eyebrow { font-size: .72rem; margin-bottom: .8rem; }
-    .hero h1 { font-size: 3.35rem; margin-bottom: .55rem; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
-    .hero .tagline { font-size: 1.42rem; margin-bottom: .8rem; }
+    .hero h1 { font-size: 3.6rem; margin-bottom: .5rem; text-shadow: 0 2px 24px rgba(0,0,0,.25); }
+    .hero .tagline { font-size: 1.5rem; margin-bottom: .8rem; }
     .hero .lede { font-size: .93rem; margin-bottom: 1.4rem; color: #d3e3dc; }
     .hero .btn { font-size: .85rem; padding: .62rem 1.05rem; }
 
@@ -315,7 +346,7 @@
     .findings li { font-size: .76rem; padding-left: 1.75rem; }
     .findings li::before { width: 1.2rem; height: 1.2rem; font-size: .62rem; }
     .cs-foot { grid-column: 1 / -1; grid-row: 3; align-self: end; margin-top: 1rem; padding-top: .8rem; }
-    .cs-title { font-size: 1.75rem; margin-bottom: .5rem; }
+    .cs-title { font-size: 1.85rem; margin-bottom: .5rem; }
     .cs-summary { font-size: .85rem; line-height: 1.55; margin-bottom: 1rem; }
     .stat { padding: .8rem .95rem; }
     .stat .v { font-size: 1.45rem; }
@@ -423,16 +454,16 @@
           <h2 class="cs-title">Decarbonising an already-green plant: Acciaieria Arvedi, Cremona</h2>
           <p class="cs-summary">Arvedi's Cremona EAF steelworks was the first steelmaker to hold a certified net-zero claim. I set the reported figure aside, rebuilt the physical Scope 1 baseline from EU ETS verified emissions, and costed a 2030 abatement package.</p>
           <div class="stats">
-            <div class="stat"><div class="v num">434,844 <small>tCO₂</small></div><div class="l">Verified Scope 1 baseline, CY2023 (EU ETS)</div></div>
-            <div class="stat"><div class="v num">44.3%</div><div class="l">Abated by the 2030 package: 192,494 tCO₂/yr</div></div>
+            <div class="stat"><div class="v num">434,844 <small>tCO<sub>2</sub></small></div><div class="l">Verified Scope 1 baseline, CY2023 (EU ETS)</div></div>
+            <div class="stat"><div class="v num">44.3%</div><div class="l">Abated by the 2030 package: 192,494 tCO<sub>2</sub>/yr</div></div>
             <div class="stat"><div class="v num">€11.44<small>/t steel</small></div><div class="l">Modelled package cost, about 1.8% of product value</div></div>
-            <div class="stat"><div class="v num">€6.9M→€32.6M</div><div class="l">Annual ETS/CBAM liability, 2026 → 2034</div></div>
+            <div class="stat"><div class="v num">€6.9M <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> €32.6M</div><div class="l">Annual ETS/CBAM liability, 2026 to 2034</div></div>
           </div>
         </div>
 
         <div class="chart-card">
           <p class="panel-title">2030 marginal abatement cost curve</p>
-          <p class="panel-sub">Bar width = tCO₂ abated per year · height = cost per tonne abated (modelled)</p>
+          <p class="panel-sub">Bar width = tCO<sub>2</sub> abated per year · height = cost per tonne abated (modelled)</p>
           <div class="chart">
             <svg viewBox="0 0 560 300" role="img" aria-labelledby="macc-t macc-d">
               <title id="macc-t">Arvedi 2030 marginal abatement cost curve</title>
@@ -461,7 +492,7 @@
                 <text x="439.4" y="270">150</text>
                 <text x="548" y="270" text-anchor="end">192.5</text>
               </g>
-              <text x="302" y="293" font-size="12.5" fill="var(--ink-3)" text-anchor="middle" class="axis-title">Cumulative abatement, ktCO₂/yr</text>
+              <text x="302" y="293" font-size="12.5" fill="var(--ink-3)" text-anchor="middle" class="axis-title">Cumulative abatement, ktCO<tspan baseline-shift="sub" font-size="75%">2</tspan>/yr</text>
               <g class="bars">
                 <g class="bar">
                   <title>Waste-heat recovery (EAF off-gas): 9,000 tCO₂/yr at −€44/tCO₂ · capex €18.0M</title>
@@ -499,11 +530,11 @@
           <div class="legend">
             <span><i style="background:var(--bar-neg)"></i>Net saving</span>
             <span><i style="background:var(--bar-pos)"></i>Net cost</span>
-            <span>Labels: €/tCO₂</span>
+            <span>Labels: €/tCO<sub>2</sub></span>
           </div>
           <table class="measures num">
             <caption class="sr-only">2030 abatement measures</caption>
-            <thead><tr><th>Measure</th><th>tCO₂/yr</th><th>€/tCO₂</th><th>€/t steel</th></tr></thead>
+            <thead><tr><th>Measure</th><th>tCO<sub>2</sub>/yr</th><th>€/tCO<sub>2</sub></th><th>€/t steel</th></tr></thead>
             <tbody>
               <tr><td>Waste-heat recovery</td><td>9,000</td><td>−44</td><td>−0.13</td></tr>
               <tr><td>Ladle + tundish electrification</td><td>14,000</td><td>55</td><td>0.25</td></tr>
@@ -515,14 +546,14 @@
         </div>
 
         <ol class="findings">
-          <li><strong>One physical result, three accounting choices.</strong> The 138 kg CO₂/t intensity is real. Market-based Scope 2, forestry offsets and a Scope 3 exclusion make up the rest of the net-zero claim.</li>
+          <li><strong>One physical result, three accounting choices.</strong> The 138 kg CO<sub>2</sub>/t intensity is real. Market-based Scope 2, forestry offsets and a Scope 3 exclusion make up the rest of the net-zero claim.</li>
           <li><strong>Emissions are near a record high.</strong> Verified Scope 1 has risen about fifteen-fold since 2005, and the plant is net short 82,536 allowances.</li>
           <li><strong>A real 2030 pathway is affordable.</strong> It clears the Mission Possible Partnership steel trajectory at under 2% of product value.</li>
           <li><strong>59% of it depends on one measure.</strong> Biocarbon needs about 36,400 t/yr of certified biochar, against a European market of tens of kilotonnes.</li>
         </ol>
 
         <div class="cs-foot">
-          <a class="link-arrow" href="arvedi-case-study.pdf" target="_blank" rel="noopener">Read the full study (PDF, 39 pp.) <span aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="arvedi-case-study.pdf" target="_blank" rel="noopener">Read the full study (PDF, 39 pp.) <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <p class="note">Capex and opex are <strong>modelled engineering estimates</strong> from public sources, not supplier quotes. The Scope 1 baseline is the only third-party-verified input.</p>
         </div>
       </div>
@@ -540,8 +571,8 @@
         <article class="card">
           <div class="kicker">MACC · 2026</div>
           <h3>Abatement cost analysis for a mid-market EAF steel plant</h3>
-          <p>I modelled eight interventions for a 500,000 t/yr plant against a 150,000 tCO₂e baseline at an 8% discount rate. Sensitivity on EU allowance prices shows the carbon price at which each capital-intensive measure turns viable.</p>
-          <div class="metric"><b class="num">~6,000 tCO₂e/yr</b> of negative-cost abatement found, for €2.7M capex</div>
+          <p>I modelled eight interventions for a 500,000 t/yr plant against a 150,000 tCO<sub>2</sub>e baseline at an 8% discount rate. Sensitivity on EU allowance prices shows the carbon price at which each capital-intensive measure turns viable.</p>
+          <div class="metric"><b class="num">~6,000 tCO<sub>2</sub>e/yr</b> of negative-cost abatement found, for €2.7M capex</div>
           <div class="stack"><span>Excel</span><span>NPV</span><span>Sensitivity</span></div>
         </article>
         <article class="card">
@@ -549,7 +580,7 @@
           <h3>Interactive abatement cost &amp; energy finance app</h3>
           <p>A React application that calculates payback, NPV, IRR, LCOE and levelised cost of abatement from user inputs, with a custom waterfall chart and a carbon-price reference line. Built end to end with LLM-assisted development and deployed with GitHub Actions.</p>
           <div class="stack" style="margin-top:auto"><span>React</span><span>Vite</span><span>GitHub Actions</span></div>
-          <a class="link-arrow" href="REPLACE_WITH_APP_URL" target="_blank" rel="noopener">Open the live app <span aria-hidden="true">→</span></a>
+          <a class="link-arrow" href="REPLACE_WITH_APP_URL" target="_blank" rel="noopener">Open the live app <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </article>
         <article class="card">
           <div class="kicker">Monitoring <span class="status">In progress</span></div>
